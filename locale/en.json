@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "Light chasing",
+    "description": "Always-on, cheap eyes: watch a camera or a video window locally, let the avatar's eyes follow the motion, freeze the interesting moment into one still, and add a single gaze line per turn instead of burning tokens on frames.",
+    "detail": "docs/DETAIL.md"
+  }
+}

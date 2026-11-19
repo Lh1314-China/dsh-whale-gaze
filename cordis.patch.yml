@@ -1,0 +1,36 @@
+# dsh-whale-gaze bundle patch
+#
+# 一行主机插件：常开的眼睛（摄像头 / 屏幕 / 窗口）+ eye_see 工具 + 每轮一行「视线」。
+# 采集与感知都在插件进程里，0 出网；每帧不进上下文，只进一行字。
+#
+# 回滚：删掉这条 insert（或把 enabled 设 false），重启 DSH。
+- insert:
+    - id: whale-gaze
+      name: 'dsh-whale-gaze'
+      config:
+        # 空 = 用 PATH 上的 ffmpeg；要指定就填绝对路径
+        ffmpegPath: ''
+        # 空 = ~/.dsh/whale-gaze
+        dataDir: ''
+        # 摄像头常开必须由你显式打开：默认先不自己睁眼
+        autoStart: false
+        sources:
+          - id: cam
+            kind: camera
+            # 空 = 自动挑第一个摄像头；有多台时填设备名
+            device: ''
+            fps: 8
+        threshold: 55
+        cooldownMs: 6000
+        keep: 200
+        promptLine: true
+        mirrorX: false
+        vts:
+          enabled: true
+          port: 8001
+          # 皮套留空：连上后按模型参数自动匹配（先试自定义名，再退回 VTS 标准名）。
+          # 对不上时跑 `node scripts/vts-bind.mjs` 看模型有哪些参数，再填这里。
+          # 例：eyeParams: { x: [ParamEyeBallX], y: [ParamEyeBallY] }
+          eyeParams: null
+          invertX: false
+          invertY: false

@@ -1,0 +1,78 @@
+{
+  "name": "dsh-whale-gaze",
+  "version": "0.2.0",
+  "description": "Always-on, cheap eyes for DeepSeek Harness: watch a camera or a video window locally, let the avatar's eyes follow the motion, freeze the interesting moment into one still — without spending tokens on every frame. 给 DSH 一双常开的、便宜的眼睛。",
+  "type": "module",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "lib/*.js",
+    "scripts/*.mjs",
+    "locale/*.json",
+    "docs",
+    "icon.svg",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "manifestVersion": 1,
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "compatibility": {
+      "dsh": ">=0.2.1-rc.2 <0.5.0",
+      "node": ">=20",
+      "profiles": [
+        "desktop",
+        "web"
+      ]
+    }
+  },
+  "engines": {
+    "node": ">=20",
+    "dsh": ">=0.2.1-rc.2 <0.5.0"
+  },
+  "os": [
+    "win32"
+  ],
+  "scripts": {
+    "check": "node --check index.js && node --check lib/tools.js && node --check lib/vts.js",
+    "bind": "node scripts/vts-bind.mjs",
+    "selfsense": "node scripts/selftest-sense.mjs",
+    "selfframes": "node scripts/selftest-frames.mjs"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "cordis-plugin",
+    "vision",
+    "camera",
+    "gaze",
+    "vtube-studio",
+    "eye-tracking",
+    "screenshot-free",
+    "token-saving",
+    "windows"
+  ],
+  "author": {
+    "name": "Lh1314-China",
+    "url": "https://github.com/Lh1314-China"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lh1314-China/dsh-whale-gaze.git"
+  },
+  "homepage": "https://github.com/Lh1314-China/dsh-whale-gaze#readme",
+  "bugs": {
+    "url": "https://github.com/Lh1314-China/dsh-whale-gaze/issues"
+  },
+  "license": "MIT"
+}
